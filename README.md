@@ -45,7 +45,7 @@ In addition to the sub-directories, the main directory also includes:
 
 - **P3_doc.html:** This is the final HTML output produced by running the analysis.
 
-- **p3assessment.rproj file:** Automatically generate when a new project is created using R studio and helps ensure continuty/collaboration
+- **p3_assessment.rproj:** Automatically generate when a new project is created using R studio and helps ensure continuty/collaboration
 
 
 ## Instuctions to reproduce analysis
