@@ -5,8 +5,7 @@
 # 
 # Date: 16 August 2024
 #-----------------------------------------------------------------------------------------------------------
-
-# !!!  PROFILE AND PACKAGES MUST BE LOADED BEFORE RUNNING ANY OTHER SCRIPT IN THE REPO !!!
+#
 # Please run user_profile script or if username is set, run the following code
 # source(user_profile.R)
 # source(user_packages.R)

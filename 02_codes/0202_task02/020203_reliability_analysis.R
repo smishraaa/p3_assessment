@@ -122,7 +122,7 @@ domain_labels <- c(
 x_position_36_60 <- which(unique(final_results_df$Cohort) == "36 - 60") - 0.5
 x_position_36_60_end <- x_position_36_60 + 1
 
-# Combine all results into a single data frame
+# fig03
 task02_fig3 <- ggplot(final_results_df, aes(x = Cohort, y = Raw_Alpha, color = Domain)) +
   geom_point(size = 2.5) +
   facet_wrap(~ Domain, ncol = 1, labeller = labeller(Domain = domain_labels), strip.position = "left") +

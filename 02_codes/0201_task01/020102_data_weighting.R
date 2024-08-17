@@ -21,10 +21,10 @@ master_data_indic1 <- master_data %>%
   select(iso3_country_code, Status.U5MR, total_birth, indicator)
 
 
-# Calculate the total sum of births for the first indicator to double check 
+# total sum of births for the first indicator to double check 
 total_birth_sum_indic1 <- sum(master_data_indic1$total_birth, na.rm = TRUE)
 
-# Calculate the total sum of births by Status.U5MR for
+# total sum of births by Status.U5MR for
 total_birth_by_status_indic1 <- master_data_indic1 %>%
   group_by(Status.U5MR, indicator) %>%
   summarise(total_birth_sum = sum(total_birth, na.rm = TRUE)) %>%
@@ -33,18 +33,18 @@ total_birth_by_status_indic1 <- master_data_indic1 %>%
     projected_birth_ratio = total_birth_sum / total_birth_indic1
   ) 
 
-###
-# Create a subset of the data for the second indicator
+#######
+#  second indicator
 indic2 <- "MNCH_SAB: Skilled birth attendant - percentage of deliveries attended by skilled health personnel"  # Replace with the actual name of the second indicator
 master_data_indic2 <- master_data %>%
   filter(indicator == indic2) %>%  # Filter for the first indicator
   select(iso3_country_code, Status.U5MR, total_birth, indicator)
 
 
-# Calculate the total sum of births for the first indicator to double check 
+# total sum of births for the first indicator to double check 
 total_birth_sum_indic2 <- sum(master_data_indic2$total_birth, na.rm = TRUE)
 
-# Calculate the total sum of births by Status.U5MR for the second indicator
+# total sum of births by Status.U5MR for the second indicator
 total_birth_by_status_indic2 <- master_data_indic2 %>%
   group_by(Status.U5MR, indicator) %>%
   summarise(total_birth_sum = sum(total_birth, na.rm = TRUE)) %>%

@@ -23,7 +23,7 @@ summary_with_na <- df_task02_master %>%
     missing_values = ifelse(child_birthday_na > 0, TRUE, FALSE)
   )
 
-# Create an enhanced table
+# table 1
 task02_table1 <- summary_with_na %>%
   kable(
     caption = "Summary of Observations by Child's Age with Missing Values",

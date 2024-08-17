@@ -6,7 +6,10 @@
 # 
 # Date: 16 August 2024
 #-----------------------------------------------------------------------------------------------------------
-
+# 
+# Please run user_profile script or if username is set, run the following code
+# source(user_profile.R)
+# source(user_packages.R)
 
 # Load the cnt_status.csv file and rename the column
 # Extracting ISO code as common identifier across files
