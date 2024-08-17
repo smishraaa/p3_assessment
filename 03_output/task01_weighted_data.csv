@@ -1,0 +1,7 @@
+indicator,Status.U5MR,mean,mean_low,mean_upp,total_birth_sum,total_birth_indic1,projected_birth_ratio,total_birth_sum_indic2,total_birth_indic2,projected_birth_ratio_indic2
+MNCH_ANC4: Antenatal care 4+ visits - percentage of women (aged 15-49 years) attended at least four times during pregnancy by any provider,Acceleration Needed,54.4311,48.7234,60.1387,43958,97353,0.4515,NA,NA,NA
+MNCH_ANC4: Antenatal care 4+ visits - percentage of women (aged 15-49 years) attended at least four times during pregnancy by any provider,Achieved,88.4446,83.8318,93.0573,26711,97353,0.2744,NA,NA,NA
+MNCH_ANC4: Antenatal care 4+ visits - percentage of women (aged 15-49 years) attended at least four times during pregnancy by any provider,On Track,56.5376,50.9572,62.118,26684,97353,0.2741,NA,NA,NA
+MNCH_SAB: Skilled birth attendant - percentage of deliveries attended by skilled health personnel,Acceleration Needed,63.7541,55.2585,72.2497,NA,NA,NA,37447,98063,0.3819
+MNCH_SAB: Skilled birth attendant - percentage of deliveries attended by skilled health personnel,Achieved,97.2997,96.2942,98.3051,NA,NA,NA,33932,98063,0.346
+MNCH_SAB: Skilled birth attendant - percentage of deliveries attended by skilled health personnel,On Track,85.7107,77.0548,94.3667,NA,NA,NA,26684,98063,0.2721

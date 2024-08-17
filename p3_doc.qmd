@@ -1,0 +1,236 @@
+---
+title: "UNICEF P3 Technical Evaluation"
+format:
+  html:
+    embed-resources: true
+    code-fold: true
+    page-layout: full
+knitr: 
+  opts_chunk:
+    fig.align: center
+    fig-cap-location: top
+editor: visual
+---
+
+```{=html}
+<style type="text/css">
+h1.title {
+  text-align: center;
+}
+</style>
+```
+```{css, echo = FALSE}
+.justify {
+  text-align: justify !important
+}
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r wd set up, include=FALSE}
+# !!! THE WD NEEDS TO BE CUSTOMIZED TO LOCAL PATH IN ORDER REPRODUCE THE TEXT 
+projectFolder = getwd()
+
+```
+
+```{r source files, include=FALSE}
+source(file.path(projectFolder, "00_user_profile.R"))
+source(file.path(rCodes, "01_user_packages.R"))
+source(file.path(codesTask1, "020101_data_prep.R"))
+source(file.path(codesTask1, "020102_data_weighting.R"))
+source(file.path(codesTask1, "020103_visual.R"))
+source(file.path(codesTask2, "020201_data_prep.R"))
+source(file.path(codesTask2, "020202_data_analysis.R"))
+source(file.path(codesTask2, "020203_reliability_analysis.R"))
+```
+
+::: {.r-stack style="margin: 3em;"}
+::: justify
+::: {.r-stack style="margin-bottom: 2em;"}
+### Task 1: Maternal and Child Health Indicators Analysis
+:::
+
+::: {.r-stack style="margin-bottom: 2em;"}
+##### *Q. Your task is to calculate population-weighted coverage of health services (antenatal care and skilled birth attendance) for countries categorized as on-track and off-track in achieving under-5 mortality targets as of 2023.*
+:::
+
+As SDG IGME classification is based on how close countries are to their targets, it is expected that the values of the indicators are highest for countries that have already met the target, followed by those on track, and finally, the mean estimates decline for countries where acceleration is needed. This expected trend is evident in the figure showing the percentage of deliveries attended by skilled health personnel. However, for the indicator 'percentage of women (aged 15-49 years) attended at least four times during pregnancy by any provider,' the difference is large between the achieved category and the other two categories (on track and acceleration needed). In fact, the differences in mean values between the on track and acceleration needed categories are small and not statistically significant.
+
+For this indicator, these differences are particularly noteworthy as countries in the acceleration-needed category are expected to have about twice as many births in 2022 (projected birth ration is 0.45 for acceleration needed countries vs 0.27 for the other 2 categories). Although it is important to note that the number of births was used to weight the data, which may have pulled the estimates downward for the acceleration-needed countries.
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+::: {.r-stack style="text-align: center"}
+Percentage of women (aged 15-49 years) attended at least four times during pregnancy by any provider
+:::
+
+```{r Figure 1a, echo=FALSE}
+MNCH_ANC4_plot
+```
+
+::: {.r-stack style="text-align: center"}
+Percentage of deliveries attended by skilled health personnel
+:::
+
+```{r Figure 1b, echo=FALSE}
+MNCH_SAB_plot
+```
+
+### Task 2: Data Perspectives: Zimbabwe MICS Early childhood development data
+
+This data perspective addresses two components of Task 2 assigned in this assessment:
+
+1.  Readme.md: wherein a technical exploration of the data was requested.
+
+2.  Readme.html: wherein a series of activities were assigned including the calculation of a new index using the mean across the variables provided in the data was requested.
+
+To fulfill the first component, this data perspective analyzes the Early Childhood Development Index (ECDI) as calculated for Zimbabwe, specifically presenting reliability estimates of the domains and overall score, and suggesting a way forward. The second component addresses the questions listed in the HTML, with figures and tables integrated into the narrative.
+
+The dataset provided contains 2,517 observations from the 2019 Zimbabwe MICS, of which 26 do not have any information on the date of birth. Since this analysis focuses on age in months, these 26 observations were excluded, resulting in a total of 2,491 observations, as shown in the table1 below\*
+
+```{r Table 1, echo=FALSE}
+
+task02_table1
+
+```
+
+For the analysis, items EC6 to EC15 were recoded as binary variables. The coding depends on the context of the item: - For positive items (where the question asks whether the child is able to perform a task), responses were coded as 1 for "Yes" and 0 otherwise. - Exceptions include items EC10, EC14, and EC15, where the questions are framed negatively. These items were recoded as 1 if the response was "No" and 0 otherwise.
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+##### *MICS ECDI*
+
+In Zimbabwe, the MICS collected information on early childhood development using the 10 items provided in the dataset, which contribute to an overall score called the ECDI score. According to [UNICEF guidelines](https://mics.unicef.org/files?job=W1siZiIsIjIwMTcvMDkvMTUvMjEvMTUvNDMvMzc4L01JQ1NfTWV0aG9kb2xvZ2ljYWxfUGFwZXJfNi5wZGYiXV0&sha=85c096f0b2c5b0c8), the primary purpose of the ECDI score is to understand the normative distribution of children's developmental status in the countries where it is implemented. The ECDI is administered to the mother or caregiver of the child, making it an ad-jure measure of the child’s abilities.
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+::: {.r-stack style="text-align: center"}
+**ECDI items and domains**
+:::
+
+|                   |                                                                                             |                                                   |
+|---------------|-------------------------------------|--------------------|
+| **Variable name** | **Item**                                                                                    | **Domain**                                        |
+| EC6               | Can (name) identify or name at least ten letters of the alphabet?                           | Literacy and numeracy domainCut-off score: 2 on 3 |
+| EC7               | Can (name) read at least four simple, popular words?                                        |                                                   |
+| EC8               | Does (name) know the name and recognize the symbol of all numbers from 1 to 10?             |                                                   |
+| EC9               | Can (name) pick up a small object with two fingers, like a stick or a rock from the ground? | Physical domain Cut-off score: 1 on 2             |
+| EC10              | Is (name) sometimes too sick to play?                                                       |                                                   |
+| EC11              | Does (name) follow simple directions on how to do something correctly?                      | Learn domain Cut-off score: 1 on 2                |
+| EC12              | When given something to do, is (name) able to do it independently?                          |                                                   |
+| EC13              | Does (name) get along well with other children?                                             | Social and emotional domain Cut-off score: 2 on 3 |
+| EC14              | Does (name) kick, bite, or hit other children or adults?                                    |                                                   |
+| EC15              | Does (name) get distracted easily?                                                          |                                                   |
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+The index is based on selected milestones that children are expected to achieve by ages 3 and 4. These ten items are grouped into four domains: literacy and numeracy, physical, social and emotional, and learning. The table below maps the domains to the corresponding items and provides the cut-off scores for determining whether a child is developmentally on track in each domain. If a child is developmentally on track in three or four domains, they are assigned an ECDI score of 1; otherwise, they receive a score of 0.
+
+The dataset provided includes each of the variables for ECDI as well as the age variable. Table 3 (Task HTML, 2c)below provides a summary statistics of share of children 3 and 4 by each item.
+
+```{r Table 3, echo=FALSE}
+
+summary_stats_table
+
+```
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+Table 3 shows that the majority of children are reported to get along with others (95.7% at age 3 and 96.3% at age 4) and can pick up small objects (90.7% at age 3 and 92.7% at age 4). Conversely, fewer children are reported to demonstrate skills in items associated with literacy and numeracy domain, with the most significant age-related differences observed in these areas. Notably, the percentage of children able to perform tasks in the literacy and numeracy domain (items EC6, EC7, and EC8) nearly doubles between ages 3 and 4.
+
+Across all items, the ability of children to perform tasks increases with age, which is also supported by regression analysis (Table 4, task HTML 2g). Table 4 presents the results of the regression analysis requested in the Readme.html task for the Readme.html ECDI score as the dependent variable and age as independent variable. The results indicate that age in months is statistically significant, with older children more likely to achieve a higher score. However, age explains only 3% of the variability in the score, suggesting that the model has weak explanatory power.
+
+::: {.r-stack style="margin-bottom: 4em;"}
+:::
+
+::: {.r-stack style="text-align: center"}
+**Regression Results**
+:::
+
+|                            |                                                                       |
+|---------------------|:-------------------------------------------------:|
+|                            |                                                                       |
+|                            |                       ***Dependent variable:***                       |
+|                            |                                                                       |
+|                            |                                                                       |
+| **Age in Months**          |                     .004<sup>\*\*\*</sup> (.0004)                     |
+| **Constant**               |                      .39<sup>\*\*\*</sup> (.02)                       |
+|                            |                                                                       |
+| **Observations**           |                                 2,491                                 |
+| **R**<sup>2</sup>          |                                  .03                                  |
+| **Adjusted R**<sup>2</sup> |                                  .02                                  |
+|                            |                                                                       |
+| ***Note:***                | <sup>\*</sup>p\<0.1; <sup>\*\*</sup>p\<0.05; <sup>\*\*\*</sup>p\<0.01 |
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+Across all items, the proportion of children reported as able to perform the tasks increases with age. This is illustrated in the table 3 above as well as figure 1 below which shows the percentage of children who are developmentally on track (ECDI score and by domains). Additionally, as per the HTML instructions, a new index titled "Score calculated per HTML 2f" is included.
+
+The month-by-month analysis also reveals consistently high share of children reported to be meeting the cut-offs in the physical, socio-emotional, and learning domains. Interestingly, the MICS ECDI remains relatively high and the trends it exhibits closely mirrors trends in the physical domain. Conversely, the new index, which averages scores across all items, instead of using domain level cut-off, is lower than the MICS ECDI score but exhibits less variability, suggesting a more stable trend.
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+```{r Figure 2, echo=FALSE}
+
+task02_fig1
+
+```
+
+Another way to look at this information is a sankey diagram wherein we can put each domain on the left side and on the right side we have the flow to target met criteria. This means that: a child can fall in multiple left hand side bucket but on the right side the child can only fall under one bucket (i.e. whether one target met, two, three or 4). What is important is the width of the connection as the width corresponds to the number of children falling in the right handside categories. In summary, Figure XX helps understand the distribution of children across different combinations of domain achievements to understand how performance across all domains contributes to the ECDI score.Two important findings are highlighted:
+
+1.  Majority of children are on track in three domains and children who are on track in three domains almost always include the physical, socio-emotional domains or learning domains in their profile. Additionally, due to relatively high reporting on physical, social-emotional and learning domains, few children fall in the categories on being on track in one or two domains only.
+
+2.  Children who are only on track in one or two domains rarely includes being on track in literacy and numeracy. But among children who are on track in four domains literary and numeracy domain contributes equally.
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+::: {.r-stack style="text-align: center"}
+Sankey diagram linking domains with number of targets met
+:::
+
+```{r Figure 3, echo=FALSE}
+
+task02_fig02
+
+```
+
+::: {.r-stack style="margin-bottom: 3em;"}
+:::
+
+##### *ECDI: Reliability in the Zimbabwean context?*
+
+The ECDI instrument underwent [rigorous validation](https://mics.unicef.org/files?job=W1siZiIsIjIwMTcvMDkvMTUvMjEvMTUvNDMvMzc4L01JQ1NfTWV0aG9kb2xvZ2ljYWxfUGFwZXJfNi5wZGYiXV0&sha=85c096f0b2c5b0c8) in 4 countries in 2 phases before its inclusion in the MICS surveys. However, even a valid tool may not always yield reliable results across different contexts. Reliability may be impacted by a number of factors including cultural variations, different interpretations of questions, or varying levels of exposure to early childhood development activities.
+
+Table 5 and Figure 3 present the reliability statistics. In accordance with the HTML readme request, Cronbach’s alpha for the HTML-requested score is presented in Table 3, while Figure 3 plots the cronbach’s alpha of the MICS ECDI and its four domains for children aged 3 to 4 years and by age cohorts in months. Using the work of K.S Taber (2018), this paper assumes that a Cronbach’s alpha below 0.70 but above 0.50 is considered questionable or poor, while anything below 0.50 is deemed unacceptable [(Taber, K.S., 2018).](https://doi.org/10.1007/s11165-016-9602-2%5D))
+
+```{r Table 5, echo=FALSE}
+
+summary_task02_table5
+
+```
+
+```{r Figure 4, echo=FALSE}
+
+task02_fig3
+
+```
+
+**Note:** physical domain items EC9 and EC10 were negatively correlated for 42 to 47 month olds and were dropped. Further investigation is recommended to understand these.
+
+In the Zimbabwean context, the Cronbach’s alpha for the ECDI score, the HTML-index score, and the physical and socio-emotional domains indicates unacceptable reliability i.e. they are below 0.50 for all age groups analyzed.This suggests that the items are not sufficiently correlated to form a reliable scale within this context.
+
+Several factors could be contributing this and further analysis is needed to understand thes. For example, re-testing items in similar contexts or conducting sensitivity analyses to assess item heterogeneity (i.e., whether the items are effectively measuring the intended constructs) may provide additional insights. Additionally, the low number of items per domain might contribute to the scale’s instability.
+
+UNICEF has anticipated these challenges and launched a new ECDI2030 (<https://data.unicef.org/resources/early-childhood-development-index-2030-ecdi2030/>) , rolled out in 2021, which includes methodological improvements such as an increased number of items per domain. While both ECDI and ECDI2030 have undergone rigorious methodological development and are valid, it will be crucial to conduct reliability analysis on this new tool to maintain credibility of analysis using these measures as any conclusions drawn using unreliable measures could be flawed or misleading reading their policy value.
+:::
+:::
