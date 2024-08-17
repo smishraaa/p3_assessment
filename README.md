@@ -25,7 +25,7 @@ This folder contains the data that was shared for the assessment.
 
 This directory includes the codes required to reproduce the analysis for Task 1 and Task 2:
 
-- **user_packages.R:** This is the second script that must be run before running the codes in the sub-directory `02_codes`.
+- **01_user_packages.R:** This is the second script that must be run before running the codes in the sub-directory `02_codes`.
 
 - **`0201_task1`**: This folder includes three scripts arranged sequentially to produce data for Task 1. 
 - **`0202_task2`**: This folder includes three scripts arranged sequentially to produce data for Task 2.
@@ -43,7 +43,7 @@ In addition to the sub-directories, the main directory also includes:
 
 - **P3_doc.qarto:** Qarto file that renders the final output
 
-- **P3_doc.html:** This is the final HTML output produced by running the analysis.
+- **P3_doc.html:** This is the final HTML output produced by running the analysis.**This file must be opened in a browser.**
 
 - **p3_assessment.rproj:** Automatically generate when a new project is created using R studio and helps ensure continuty/collaboration
 
@@ -51,9 +51,11 @@ In addition to the sub-directories, the main directory also includes:
 ## Instuctions to reproduce analysis
 
 #### Option 1
-- Run **user_profile.R:** making sure to update the script to add your information
+- Run **00_user_profile.R:** making sure to update the script to add your information
 - Run **run_P3_assessment.R:** which will sequentially run through all scripts and produce the final HTML output
+- Open **P3_doc.html** in the browser if it does not open automatically
 
 #### Option 2
-- Run **user_profile.R** making sure to update the script to add your information
-- Run each function in the sub-directory `02_codes`, starting with **user_packages.R:** followed by the scripts in `0201_task1` and then `0202_task2`, finally run `p3_doc.qmd`.
+- Run **00_user_profile.R** making sure to update the script to add your information
+- Run each function in the sub-directory `02_codes`, starting with **01_user_packages.R:** followed by the scripts in `0201_task1` and then `0202_task2`, finally run `p3_doc.qmd`
+- Open **P3_doc.html** in the browser if it does not open automatically.
