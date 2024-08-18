@@ -104,7 +104,7 @@ For the analysis, items EC6 to EC15 were recoded as binary variables. The coding
 
 ##### *MICS ECDI*
 
-In Zimbabwe, the MICS collected information on early childhood development using the 10 items provided in the dataset, which contribute to an overall score called the ECDI score. According to [UNICEF guidelines](https://mics.unicef.org/files?job=W1siZiIsIjIwMTcvMDkvMTUvMjEvMTUvNDMvMzc4L01JQ1NfTWV0aG9kb2xvZ2ljYWxfUGFwZXJfNi5wZGYiXV0&sha=85c096f0b2c5b0c8), the primary purpose of the ECDI score is to understand the normative distribution of children's developmental status in the countries where it is implemented. The ECDI is administered to the mother or caregiver of the child, making it an ad-jure measure of the child’s abilities.
+In Zimbabwe, the MICS collected information on early childhood development using the 10 items provided in the dataset, which contribute to an overall score called the ECDI score. According to [UNICEF guidelines](https://mics.unicef.org/files?job=W1siZiIsIjIwMTcvMDkvMTUvMjEvMTUvNDMvMzc4L01JQ1NfTWV0aG9kb2xvZ2ljYWxfUGFwZXJfNi5wZGYiXV0&sha=85c096f0b2c5b0c8), the primary purpose of the ECDI score is to understand the normative distribution of children's developmental status in the countries where it is implemented. The ECDI is administered to the mother or caregiver of the child and should not be interpreted as the child’s performance on the items.
 
 ::: {.r-stack style="margin-bottom: 3em;"}
 :::
@@ -114,7 +114,7 @@ In Zimbabwe, the MICS collected information on early childhood development using
 :::
 
 |                   |                                                                                             |                                                   |
-|-------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------|
+|---------------|-------------------------------------|--------------------|
 | **Variable name** | **Item**                                                                                    | **Domain**                                        |
 | EC6               | Can (name) identify or name at least ten letters of the alphabet?                           | Literacy and numeracy domainCut-off score: 2 on 3 |
 | EC7               | Can (name) read at least four simple, popular words?                                        |                                                   |
@@ -155,7 +155,7 @@ Across all items, the ability of children to perform tasks increases with age, w
 :::
 
 |                            |                                                                       |
-|----------------------------|:---------------------------------------------------------------------:|
+|---------------------|:-------------------------------------------------:|
 |                            |                                                                       |
 |                            |                       ***Dependent variable:***                       |
 |                            |                                                                       |
