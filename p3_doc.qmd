@@ -114,7 +114,7 @@ In Zimbabwe, the MICS collected information on early childhood development using
 :::
 
 |                   |                                                                                             |                                                   |
-|---------------|-------------------------------------|--------------------|
+|-------------------|---------------------------------------------------------------------------------------------|---------------------------------------------------|
 | **Variable name** | **Item**                                                                                    | **Domain**                                        |
 | EC6               | Can (name) identify or name at least ten letters of the alphabet?                           | Literacy and numeracy domainCut-off score: 2 on 3 |
 | EC7               | Can (name) read at least four simple, popular words?                                        |                                                   |
@@ -155,7 +155,7 @@ Across all items, the ability of children to perform tasks increases with age, w
 :::
 
 |                            |                                                                       |
-|---------------------|:-------------------------------------------------:|
+|----------------------------|:---------------------------------------------------------------------:|
 |                            |                                                                       |
 |                            |                       ***Dependent variable:***                       |
 |                            |                                                                       |
